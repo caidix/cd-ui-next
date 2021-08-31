@@ -4,30 +4,30 @@
       <h3>Button</h3>
 
       <cd-button
-        :type="switchBtn ? 'primary' : 'neutral'"
+        :type="switchBtn ? 'primary' : 'default'"
         @click="switchBtn = !switchBtn"
         >{{ switchBtn ? 'Following' : 'Click to follow' }}</cd-button
       >
 
       <cd-button>Button</cd-button>
-      <cd-button type="primary">Button</cd-button>
+      <cd-button type="primary" text>Button</cd-button>
       <cd-button type="success">Button</cd-button>
-      <cd-button type="danger">Button</cd-button>
-      <cd-button type="warning">Button</cd-button>
-      <cd-button type="black">Button</cd-button>
+      <cd-button type="danger" pulse>Button</cd-button>
+      <cd-button type="warning" outlined>Button</cd-button>
+      <cd-button type="black" round loading>Button</cd-button>
     </div>
 
     <div>
       <h3>Icon</h3>
 
-      <cd-icon box box-color="#3051ff" color="#fff" name="info" />
+      <cd-icon box box-color="#4b5cc4" color="#fff" name="info" />
       <cd-icon box box-color="#07d85b" color="#fff" name="room" />
       <cd-icon box box-color="#ff45c0" color="#fff" name="favorite" />
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 const defaultColors = {
   hex: '#194d33e6',
   hsl: {

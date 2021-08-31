@@ -1,5 +1,5 @@
 export enum Colors {
-  NEUTRAL = 'neutral',
+  NEUTRAL = 'default',
   PRIMARY = 'primary',
   SUCCESS = 'success',
   DANGER = 'danger',

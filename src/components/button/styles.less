@@ -20,7 +20,7 @@
   }
 
   &:focus {
-    box-shadow: 0 2px 4px fade(@bg-color, 40%), 0 0 0 3px fade(@bg-color, 20%);
+    box-shadow: 0 2px 4px fade(@bg-color, 20%), 0 0 0 3px fade(@bg-color, 20%);
   }
 
   &.cd-btn--text {
@@ -95,11 +95,11 @@
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
   cursor: pointer;
   border: 0;
+  user-select: none;
   border-radius: @border-radius-base;
   outline: none;
   box-sizing: border-box;
   transition: all 0.2s;
-  user-select: none;
   justify-content: center;
   align-items: center;
 
@@ -195,7 +195,7 @@
     .set-outlined(@color-secondary-black);
   }
 
-  &--neutral {
+  &--default {
     color: @color-black;
     text-shadow: none;
     background-color: #fff;
@@ -256,17 +256,19 @@
     box-shadow: none;
   }
 
-  &--big {
+  &--large {
     padding: 14px 28px;
     font-size: 16px;
   }
 
   &--small {
     padding: 5px 14px;
+    font-size: 12px;
   }
 
-  &--empty {
-    padding: 9px;
+  &--mini {
+    padding: 5px 14px;
+    font-size: 9px;
   }
 
   &--loading {

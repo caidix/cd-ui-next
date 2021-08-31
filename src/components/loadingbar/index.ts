@@ -1,7 +1,7 @@
-import LoadingVue from './ItLoadingbar.vue'
+import LoadingVue from './Loadingbar.vue'
 import { createApp, App, ComponentPublicInstance } from 'vue'
 
-interface ILoading {
+interface CILoading {
   loadingInstance: App
   loadEl: ComponentPublicInstance
   start(): void
@@ -9,13 +9,13 @@ interface ILoading {
   finish(): void
 }
 
-interface ILoadingProps {
+interface CLoadingProps {
   start: boolean
   progress: number
   height: number
 }
 
-class Loading implements ILoading {
+class Loading implements CILoading {
   loadingInstance = createApp(LoadingVue)
   loadEl: ComponentPublicInstance
 
@@ -26,19 +26,19 @@ class Loading implements ILoading {
   }
 
   start() {
-    ;(this.loadEl.$data as ILoadingProps).start = true
-    ;(this.loadEl.$data as ILoadingProps).progress = 90
+    ;(this.loadEl.$data as CLoadingProps).start = true
+    ;(this.loadEl.$data as CLoadingProps).progress = 90
   }
 
   update(value: number) {
-    ;(this.loadEl.$data as ILoadingProps).start = false
-    ;(this.loadEl.$data as ILoadingProps).progress = value
+    ;(this.loadEl.$data as CLoadingProps).start = false
+    ;(this.loadEl.$data as CLoadingProps).progress = value
   }
 
   finish() {
-    ;(this.loadEl.$data as ILoadingProps).start = false
-    ;(this.loadEl.$data as ILoadingProps).progress = 100
-    ;(this.loadEl.$data as ILoadingProps).height = 0
+    ;(this.loadEl.$data as CLoadingProps).start = false
+    ;(this.loadEl.$data as CLoadingProps).progress = 100
+    ;(this.loadEl.$data as CLoadingProps).height = 0
   }
 }
 

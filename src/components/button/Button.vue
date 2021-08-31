@@ -11,27 +11,39 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
-import ItIcon from '../icon'
-import ItLoading from '../loading'
-import { Sizes, Colors } from '@/models/enums'
+import { defineComponent, computed, PropType } from 'vue'
+import CdIcon from '../icon'
+import CdLoading from '../loading'
+import { ComponentSize } from '@/utils/types'
+import { isValidComponentSize } from '@/utils/validators'
+import { ButtonType } from './types'
 
 export default defineComponent({
   name: 'cd-button',
   components: {
-    ItIcon,
-    ItLoading,
+    CdIcon,
+    CdLoading,
   },
   props: {
     type: {
-      type: String,
-      default: Colors.NEUTRAL,
-      validator: (value: Colors) => Object.values(Colors).includes(value),
+      type: String as PropType<ButtonType>,
+      default: 'default',
+      validator: (val: string) => {
+        return [
+          'default',
+          'primary',
+          'success',
+          'warning',
+          'info',
+          'danger',
+          'black',
+        ].includes(val)
+      },
     },
     size: {
-      type: String,
-      default: Sizes.NORMAL,
-      validator: (value: Sizes) => Object.values(Sizes).includes(value),
+      default: 'medium',
+      type: String as PropType<ComponentSize>,
+      validator: isValidComponentSize,
     },
     iconAfter: { type: Boolean },
     disabled: { type: Boolean },
@@ -56,7 +68,7 @@ export default defineComponent({
         [`cd-btn--${props.size}`]: props.size,
         ...(props.type
           ? { [`cd-btn--${props.type}`]: true }
-          : { 'cd-btn--neutral': true }),
+          : { 'cd-btn--default': true }),
         ...(props.icon
           ? {
               [props.iconAfter ? 'cd-btn--icon-right' : 'cd-btn--icon-left']:
